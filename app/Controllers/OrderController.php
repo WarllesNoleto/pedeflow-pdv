@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class OrderController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('orders/index', ['items'=>[]]);
   }

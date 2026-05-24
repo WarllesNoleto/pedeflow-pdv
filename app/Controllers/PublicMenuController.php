@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class PublicMenuController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('publicmenus/index', ['items'=>[]]);
   }

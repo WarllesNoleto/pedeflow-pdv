@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class CashController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('cashs/index', ['items'=>[]]);
   }

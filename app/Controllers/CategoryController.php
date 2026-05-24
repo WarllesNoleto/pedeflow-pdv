@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class CategoryController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('categorys/index', ['items'=>[]]);
   }

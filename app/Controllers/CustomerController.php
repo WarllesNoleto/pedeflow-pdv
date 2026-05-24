@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class CustomerController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('customers/index', ['items'=>[]]);
   }

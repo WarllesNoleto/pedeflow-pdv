@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class SettingController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('settings/index', ['items'=>[]]);
   }

@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class ReportController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('reports/index', ['items'=>[]]);
   }
