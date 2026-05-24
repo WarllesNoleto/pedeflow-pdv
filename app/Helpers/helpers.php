@@ -43,7 +43,8 @@ function status_badge(string $status): string
         'finalizado' => 'success', 'cancelado' => 'danger',
     ];
     $label = str_replace('_', ' ', ucfirst($status));
-    return "<span class=\"badge bg-{$map[$status] ?? 'light text-dark'}\">{$label}</span>";
+    $badgeClass = $map[$status] ?? 'light text-dark';
+    return "<span class=\"badge bg-{$badgeClass}\">{$label}</span>";
 }
 
 function flash(string $type, string $message): void { $_SESSION['flash'][$type] = $message; }
