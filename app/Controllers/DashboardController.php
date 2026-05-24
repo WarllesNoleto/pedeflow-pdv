@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class DashboardController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('dashboards/index', ['items'=>[]]);
   }
