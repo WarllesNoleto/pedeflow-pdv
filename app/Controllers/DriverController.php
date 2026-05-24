@@ -1,17 +1,5 @@
 <?php
 namespace App\Controllers;
-use App\Core\View;
-use App\Models\GenericModel;
-
-class DriverController {
-  public function index(): void {
-    $model = new GenericModel();
-    
-    View::render('drivers/index', ['items'=>[]]);
-  }
-  public function store(): void { flash('success','Registro salvo com sucesso'); redirect('/pedeflow-pdv/public/drivers'); }
-  public function kanban(): void { View::render('orders/kanban', ['orders'=>[]]); }
-  public function updateStatus(): void { flash('success','Status atualizado'); redirect('/pedeflow-pdv/public/orders/kanban'); }
-  public function movement(): void { flash('success','Movimento registrado'); redirect('/pedeflow-pdv/public/cash'); }
-  public function update(): void { flash('success','Configurações atualizadas'); redirect('/pedeflow-pdv/public/settings'); }
-}
+use App\Core\View; use App\Models\Driver;
+class DriverController { public function index(): void { View::render('drivers/index',['items'=>(new Driver())->all()]); }
+public function store(): void { verify_csrf(); $m=new Driver(); $id=(int)($_POST['id']??0); $data=['name'=>trim($_POST['name']),'phone'=>trim($_POST['phone']),'status'=>(int)($_POST['status']??1)]; if($id)$m->update($id,$data); else $m->create($data); flash('success','Entregador salvo'); redirect('/drivers'); }}

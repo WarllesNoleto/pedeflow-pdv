@@ -1,17 +1,5 @@
 <?php
 namespace App\Controllers;
-use App\Core\View;
-use App\Models\GenericModel;
-
-class CustomerController {
-  public function index(): void {
-    $model = new GenericModel();
-    
-    View::render('customers/index', ['items'=>[]]);
-  }
-  public function store(): void { flash('success','Registro salvo com sucesso'); redirect('/pedeflow-pdv/public/customers'); }
-  public function kanban(): void { View::render('orders/kanban', ['orders'=>[]]); }
-  public function updateStatus(): void { flash('success','Status atualizado'); redirect('/pedeflow-pdv/public/orders/kanban'); }
-  public function movement(): void { flash('success','Movimento registrado'); redirect('/pedeflow-pdv/public/cash'); }
-  public function update(): void { flash('success','Configurações atualizadas'); redirect('/pedeflow-pdv/public/settings'); }
-}
+use App\Core\View; use App\Models\Customer;
+class CustomerController { public function index(): void { $q=trim($_GET['q']??'');$items=(new Customer())->all(); if($q)$items=array_values(array_filter($items,fn($c)=>stripos($c['name'],$q)!==false||stripos($c['phone'],$q)!==false)); View::render('customers/index',['items'=>$items]); }
+public function store(): void { verify_csrf(); $m=new Customer(); $id=(int)($_POST['id']??0); $data=['name'=>trim($_POST['name']),'phone'=>trim($_POST['phone']),'address'=>trim($_POST['address']),'district'=>trim($_POST['district']),'reference_note'=>trim($_POST['reference_note']),'status'=>(int)($_POST['status']??1)]; if($id)$m->update($id,$data); else $m->create($data); flash('success','Cliente salvo'); redirect('/customers'); }}

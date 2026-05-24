@@ -1,17 +1,5 @@
 <?php
 namespace App\Controllers;
-use App\Core\View;
-use App\Models\GenericModel;
-
-class AddonController {
-  public function index(): void {
-    $model = new GenericModel();
-    
-    View::render('addons/index', ['items'=>[]]);
-  }
-  public function store(): void { flash('success','Registro salvo com sucesso'); redirect('/pedeflow-pdv/public/addons'); }
-  public function kanban(): void { View::render('orders/kanban', ['orders'=>[]]); }
-  public function updateStatus(): void { flash('success','Status atualizado'); redirect('/pedeflow-pdv/public/orders/kanban'); }
-  public function movement(): void { flash('success','Movimento registrado'); redirect('/pedeflow-pdv/public/cash'); }
-  public function update(): void { flash('success','Configurações atualizadas'); redirect('/pedeflow-pdv/public/settings'); }
-}
+use App\Core\View; use App\Models\Addon; use App\Models\Product;
+class AddonController { public function index(): void { View::render('addons/index',['items'=>(new Addon())->all(),'products'=>(new Product())->active()]); }
+public function store(): void { verify_csrf(); $m=new Addon(); $id=(int)($_POST['id']??0); $data=['product_id'=>$_POST['product_id']!==''?(int)$_POST['product_id']:null,'name'=>trim($_POST['name']),'price'=>(float)$_POST['price'],'status'=>(int)($_POST['status']??1)]; if($id)$m->update($id,$data); else $m->create($data); flash('success','Adicional salvo'); redirect('/addons'); }}
