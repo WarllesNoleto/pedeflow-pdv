@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class AddonController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('addons/index', ['items'=>[]]);
   }

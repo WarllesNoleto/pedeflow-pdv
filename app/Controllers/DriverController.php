@@ -5,7 +5,7 @@ use App\Models\GenericModel;
 
 class DriverController {
   public function index(): void {
-    =new GenericModel();
+    $model = new GenericModel();
     
     View::render('drivers/index', ['items'=>[]]);
   }
