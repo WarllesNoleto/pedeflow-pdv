@@ -1,0 +1,4 @@
+:root{--roxo:#2b124c;--verde:#1f9d55;--laranja:#f28c28;--vermelho:#dc3545}
+body{background:#f5f6fb}.sidebar{min-height:100vh;min-width:220px;background:var(--roxo)}
+.btn-primary{background:var(--roxo);border-color:var(--roxo)}
+@media (max-width:768px){.sidebar{min-height:auto;min-width:100%;}}

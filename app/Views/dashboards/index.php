@@ -1,0 +1,1 @@
+<h2>Dashboard</h2><div class='row g-3'><?php foreach([['Pedidos hoje','12'],['Faturado','R$ 850,00'],['Pendente','4'],['Em preparo','3'],['Em entrega','2'],['Finalizado','6']] as $c): ?><div class='col-md-4'><div class='card shadow-sm'><div class='card-body'><small><?= $c[0] ?></small><h4><?= $c[1] ?></h4></div></div></div><?php endforeach; ?></div>

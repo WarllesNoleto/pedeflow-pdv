@@ -1,0 +1,1 @@
+<div class='container py-5' style='max-width:420px'><h3>Entrar no PedeFlow</h3><form method='post' action='/pedeflow-pdv/public/login'><input class='form-control my-2' name='email' type='email' placeholder='E-mail'><input class='form-control my-2' name='password' type='password' placeholder='Senha'><button class='btn btn-primary w-100'>Entrar</button></form></div>

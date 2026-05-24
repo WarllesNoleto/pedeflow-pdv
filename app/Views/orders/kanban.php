@@ -1,0 +1,1 @@
+<h2>Kanban de Pedidos</h2><div class='row'><?php foreach(['Pendente','Aceito','Em preparo','Pronto para retirada','Saiu para entrega','Finalizado','Cancelado'] as $s): ?><div class='col-md'><div class='card'><div class='card-header'><?= $s ?></div><div class='card-body'><small>Sem pedidos</small></div></div></div><?php endforeach; ?></div>
