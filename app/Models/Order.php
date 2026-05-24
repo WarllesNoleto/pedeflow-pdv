@@ -2,5 +2,5 @@
 namespace App\Models;
 class Order extends BaseCrudModel {
     protected string $table = 'orders';
-    protected array $fillable = ['name','status','category_id','description','price','image','avg_prep_time','product_id','phone','address','district','reference_note','store_name','default_delivery_fee','avg_delivery_time','pix_key','whatsapp_template','order_type','payment_method','delivery_fee','discount','subtotal','total','notes','driver_id','customer_id','opened_by','opened_at','closed_at','opening_amount','closing_amount','cash_register_id','type','amount'];
+    protected array $fillable = ['customer_id','driver_id','order_type','payment_method','status','subtotal','delivery_fee','discount','total','notes'];
 }
